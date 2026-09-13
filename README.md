@@ -92,14 +92,11 @@ Region **us-west-2**. Kept reads `BEDROCK_MODEL_ID` from the environment
 and does not hardcode an ID. Confirm the ID in the Bedrock console for your
 account before Phase 2 — names and inference-profile strings move.
 
-| Role | Enable in the Bedrock console | Example `BEDROCK_MODEL_ID` (verify) |
-| --- | --- | --- |
+Enable one of:
 
-| Role | Enable in the Bedrock console | Set `BEDROCK_MODEL_ID` to |
-| --- | --- | --- |
-| Default | Claude Sonnet 4.6 | `us.anthropic.claude-sonnet-4-6` |
-| Cheap iteration | Claude Haiku 4.5 | `us.anthropic.claude-haiku-4-5-20251001-v1:0` |
-| AWS-native fallback | Nova 2 Lite | `us.amazon.nova-2-lite-v1:0` |
+- Default: Claude Sonnet 4.6
+- Cheap iteration: Claude Haiku 4.5
+- AWS-native fallback: Nova 2 Lite
 
 Details: [docs/AWS_INTEGRATION.md](docs/AWS_INTEGRATION.md).
 
