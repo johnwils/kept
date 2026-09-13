@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block heading %}Decisions, on the record.{% endblock %}
+{% block content %}
+  <section class="hero-copy">
+    <p class="lede">
+      “We’re going with Postgres over Dynamo”
+      should not die in a transcript.
+    </p>
+    <p>
+      Each technical decision becomes an Architecture Decision Record in the
+      repo, quoted from the call, opened as a pull request. Evidence stays
+      attached to the choice.
+    </p>
+  </section>
+
+  <div class="empty-panel">
+    <p class="kicker">ADRs</p>
+    <h2>No decisions captured.</h2>
+    <p>
+      Phase 3 writes <code>docs/adr/NNNN-title.md</code> and opens the PR.
+      Until then this page is the shelf.
+    </p>
+  </div>
+{% endblock %}

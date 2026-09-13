@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block heading %}One-click confirm.{% endblock %}
+{% block content %}
+  <section class="hero-copy">
+    <p class="lede">
+      Auto-create needs <em>confidence ≥ 0.75</em>.
+      The band between 0.50 and 0.75 waits here.
+    </p>
+    <p>
+      False positives are worse than misses. Anything the agent is unsure about
+      sits in this inbox until you confirm. Below 0.50 is dropped, never filed.
+    </p>
+  </section>
+
+  <div class="empty-panel">
+    <p class="kicker">Inbox</p>
+    <h2>No items pending review.</h2>
+    <p>
+      Extraction starts in Phase 2. After that, low-confidence commitments,
+      decisions, and asks land here as a queue — confirm, edit, or dismiss.
+    </p>
+  </div>
+{% endblock %}

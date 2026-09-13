@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block heading %}The demo screen.{% endblock %}
+{% block content %}
+  <section class="hero-copy">
+    <p class="lede">
+      Say a sentence on a call.
+      <em>Watch it become an issue.</em>
+    </p>
+    <p>
+      This page tails the Bee stream. Utterances appear as they land. When a
+      conversation moves to <code>processed</code>, the agent extracts, and
+      the GitHub issue plus Bee todo render here. Film this.
+    </p>
+  </section>
+
+  <div class="stream" aria-live="polite">
+    <div class="stream-head">
+      <span class="kicker">bee stream --json</span>
+      <span class="pill"><span class="dot" data-mode="{{ mode }}"></span>{{ mode }}</span>
+    </div>
+    <ol class="stream-log">
+      <li class="muted">Waiting for fixtures or a live Bee stream.</li>
+      <li class="muted">Capture commands are on Setup. Phase 1 tails this for real.</li>
+    </ol>
+  </div>
+{% endblock %}

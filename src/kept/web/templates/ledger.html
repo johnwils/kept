@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block heading %}Nothing filed yet.{% endblock %}
+{% block content %}
+  <section class="hero-copy">
+    <p class="lede">
+      Bee remembers what you said.
+      <em>Kept makes sure you do it.</em>
+    </p>
+    <p>
+      Verbal commitments from standups, calls, and hallway conversations become
+      GitHub issues, Architecture Decision Records, and a Bee todo on your wrist.
+      This ledger is the scoreboard.
+    </p>
+  </section>
+
+  <section class="columns" aria-label="Promise ledger">
+    <article class="col">
+      <header>
+        <h2>Kept</h2>
+        <span class="count">0</span>
+      </header>
+      <p class="empty">Closed issues with a matching Bee todo. Streaks land in Phase 5.</p>
+    </article>
+    <article class="col">
+      <header>
+        <h2>At risk</h2>
+        <span class="count">0</span>
+      </header>
+      <p class="empty">Due inside 24 hours, still open. Nudges land in Phase 5.</p>
+    </article>
+    <article class="col">
+      <header>
+        <h2>Broken</h2>
+        <span class="count">0</span>
+      </header>
+      <p class="empty">Past due, still open. The point is to keep this column empty.</p>
+    </article>
+  </section>
+
+  <section class="phases" aria-label="Build phases">
+    <h2>Build</h2>
+    <ol>
+      {% for phase in phases %}
+      <li class="{{ phase.status }}">
+        <span class="n">{{ phase.id }}</span>
+        <span class="name">{{ phase.name }}</span>
+        <span class="st">{{ phase.status }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block heading %}Phase 0 checkpoint.{% endblock %}
+{% block content %}
+  <section class="hero-copy">
+    <p class="lede">
+      Scaffold is in.
+      <em>We need your real Bee data next.</em>
+    </p>
+    <p>
+      Run these on the Mac that is logged into Bee (Watch + iPhone, Developer
+      Mode on). Paste the output back into this chat. Do not commit real
+      transcripts — they go in <code>fixtures/real/</code>, which is gitignored.
+    </p>
+  </section>
+
+  <ol class="steps">
+    <li>
+      <h2>1. Confirm the CLI</h2>
+      <pre><code>npm install -g @beeai/cli
+bee version
+bee login          # skip if bee status already shows you
+bee status
+bee ping
+bee me --json</code></pre>
+    </li>
+    <li>
+      <h2>2. Capture a sync snapshot</h2>
+      <pre><code>mkdir -p fixtures/real
+bee sync --output fixtures/real/sync --recent-days 14
+bee conversations list --json --limit 50 > fixtures/real/conversations.json
+bee todos list --json > fixtures/real/todos.json
+bee facts list --json > fixtures/real/facts.json
+bee now --json > fixtures/real/now.json</code></pre>
+    </li>
+    <li>
+      <h2>3. Pull a couple of transcripts</h2>
+      <p>Pick two conversation ids from the list (engineering talk beats small talk).</p>
+      <pre><code>bee conversations transcript <id> --json > fixtures/real/transcript-<id>.json
+bee conversations get <id> --json > fixtures/real/conversation-<id>.json
+bee conversations related <id> --json > fixtures/real/related-<id>.json</code></pre>
+    </li>
+    <li>
+      <h2>4. Sample the live stream (~45s)</h2>
+      <p>macOS has no <code>timeout(1)</code> by default. This works:</p>
+      <pre><code>bee stream --json --types new-conversation,update-conversation,update-conversation-summary,new-utterance,todo-created,todo-updated > fixtures/real/stream.jsonl &
+STREAM_PID=$!
+sleep 45
+kill $STREAM_PID
+wait $STREAM_PID 2>/dev/null
+wc -l fixtures/real/stream.jsonl</code></pre>
+    </li>
+    <li>
+      <h2>5. Paste back</h2>
+      <p>
+        Paste <code>bee status</code>, <code>bee me --json</code> (redact email if you want),
+        line counts, and one redacted transcript. That locks the payload shapes
+        for Phase 1. Full capture script: <code>scripts/capture-fixtures.sh</code>.
+      </p>
+    </li>
+  </ol>
+
+  <section class="bedrock">
+    <h2>Enable in Bedrock (us-west-2) before Phase 2</h2>
+    <p>
+      Console → Amazon Bedrock → Model access. We read
+      <code>BEDROCK_MODEL_ID</code> from env — nothing is hardcoded.
+    </p>
+    <table>
+      <thead>
+        <tr><th>Role</th><th>Model</th><th>Set BEDROCK_MODEL_ID to</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Default</td>
+          <td>Claude Sonnet 4.6</td>
+          <td><code>us.anthropic.claude-sonnet-4-6</code></td>
+        </tr>
+        <tr>
+          <td>Cheap iteration</td>
+          <td>Claude Haiku 4.5</td>
+          <td><code>us.anthropic.claude-haiku-4-5-20251001-v1:0</code></td>
+        </tr>
+        <tr>
+          <td>AWS-native fallback</td>
+          <td>Nova 2 Lite</td>
+          <td><code>us.amazon.nova-2-lite-v1:0</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+{% endblock %}

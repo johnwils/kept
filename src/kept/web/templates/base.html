@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title }} · Kept</title>
+    <meta name="theme-color" content="#0B0C0A" />
+    <meta
+      name="description"
+      content="Bee remembers what you said. Kept makes sure you do it."
+    />
+    <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="https://unpkg.com/htmx.org@2.0.4" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="rail">
+        <a class="mark" href="/" aria-label="Kept home">
+          <span class="mark-rule" aria-hidden="true"></span>
+          <span class="mark-name">Kept</span>
+        </a>
+        <p class="mark-line">promises, filed.</p>
+        <nav class="nav" aria-label="Primary">
+          {% for href, label, key in nav %}
+          <a
+            href="{{ href }}"
+            class="nav-link{% if active == key %} is-active{% endif %}"
+            {% if active == key %}aria-current="page"{% endif %}
+          >
+            {{ label }}
+          </a>
+          {% endfor %}
+        </nav>
+        <div class="rail-meta">
+          <div class="pill">
+            <span class="dot" data-mode="{{ mode }}"></span>
+            {{ mode }}
+          </div>
+          <p class="phase-label">Phase 0 of 6</p>
+        </div>
+      </aside>
+
+      <div class="stage">
+        <header class="top">
+          <div>
+            <p class="eyebrow">{{ title }}</p>
+            <h1>{% block heading %}{{ title }}{% endblock %}</h1>
+          </div>
+          <div class="top-status" aria-label="Promise status key">
+            <span class="key kept">kept</span>
+            <span class="key risk">at-risk</span>
+            <span class="key broken">broken</span>
+          </div>
+        </header>
+        <main>{% block content %}{% endblock %}</main>
+        <footer class="colophon">
+          <span>Kept {{ version }}</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>MIT</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <a href="https://github.com/johnwils/kept">johnwils/kept</a>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
