@@ -36,7 +36,7 @@ flowchart LR
   CLI -->|"bee stream --json"| Daemon[kept-daemon]
   CLI -->|"bee sync every 15 min"| Daemon
   Daemon -->|"transcript + related + facts"| Agent["kept-agent<br/>Strands on AgentCore"]
-  Agent --> Bedrock["Amazon Bedrock<br/>Claude Sonnet 4.6"]
+  Agent --> Bedrock["Amazon Bedrock"]
   Daemon --> GH["GitHub issues + ADR PRs"]
   Daemon --> Todos["bee todos create / complete"]
   Daemon --> Web[kept-web]
@@ -89,7 +89,11 @@ Full command list: [docs/FIXTURES.md](docs/FIXTURES.md).
 ## Bedrock model (enable before Phase 2)
 
 Region **us-west-2**. Kept reads `BEDROCK_MODEL_ID` from the environment
-and does not hardcode an ID.
+and does not hardcode an ID. Confirm the ID in the Bedrock console for your
+account before Phase 2 — names and inference-profile strings move.
+
+| Role | Enable in the Bedrock console | Example `BEDROCK_MODEL_ID` (verify) |
+| --- | --- | --- |
 
 | Role | Enable in the Bedrock console | Set `BEDROCK_MODEL_ID` to |
 | --- | --- | --- |

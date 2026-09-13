@@ -6,6 +6,7 @@ from typing import Literal
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 Mode = Literal["fixture", "live", "local-agent"]
+ConsentDefault = Literal["self", "flagged", "allowlist"]
 
 
 class Settings(BaseSettings):
@@ -21,6 +22,7 @@ class Settings(BaseSettings):
     kept_web_host: str = "0.0.0.0"
     kept_web_port: int = 8080
     kept_db_path: Path = Path("data/kept.db")
+    kept_ship_mode: bool = False
 
     bee_bin: str = "bee"
     bee_mcp_http_port: int = 8790
@@ -28,6 +30,8 @@ class Settings(BaseSettings):
 
     kept_me_identifiers: str = ""
     kept_redact: str = ""
+    kept_consent_default: ConsentDefault = "self"
+    kept_consent_allowlist: str = ""
 
     kept_auto_create_min: float = 0.75
     kept_inbox_min: float = 0.5
@@ -54,6 +58,10 @@ class Settings(BaseSettings):
     @property
     def redact_terms(self) -> list[str]:
         return _csv(self.kept_redact)
+
+    @property
+    def consent_allowlist(self) -> list[str]:
+        return _csv(self.kept_consent_allowlist)
 
 
 def _csv(raw: str) -> list[str]:

@@ -3,6 +3,10 @@
 Every real snag with Bee CLI, MCP, AgentCore, Strands, or Bedrock. Format is
 fixed: task, steps, expected vs actual, severity, workaround, suggestion.
 
+**Rule: no entry without a terminal transcript.** Desk-research notes belong
+in PRODUCT_FEEDBACK.md or FEATURE_REQUESTS.md. From Phase 1 on, paste the
+command run and the actual output or error.
+
 Bonus: submissions with a friction log can earn up to 10% extra.
 
 ---
@@ -43,22 +47,6 @@ Bonus: submissions with a friction log can earn up to 10% extra.
   to that shape.
 - **Actionable suggestion:** Publish one redacted `transcript --json` example
   (utterance fields, id vs uuid, summary location) on the conversations page.
-
-## 2026-09-13 — MCP HTTP is documented two ways
-
-- **Task attempted:** Confirm how to run Bee MCP over HTTP for a Strands
-  client (`bee mcp serve-http --port 8790 --token ...` from the brief).
-- **Steps taken:** docs.bee.computer/docs/mcp (stdio `bee mcp serve`, HTTP
-  described as localhost + bearer token ≥32 chars) and bee-cli README
-  (`bee mcp serve-http [--port N]`).
-- **Expected:** one command, default port, token flag name.
-- **Actual:** official page does not name `serve-http` or a default port;
-  GitHub README does. Token via `--token` or `BEE_MCP_HTTP_TOKEN`.
-- **Severity:** low
-- **Workaround:** follow the GitHub README; default port 8790 in `.env.example`.
-  Verify on the Mac at the Phase 0 checkpoint with `bee mcp --help`.
-- **Actionable suggestion:** Put `serve-http`, `--port`, `--token`, and
-  `POST /mcp` + `GET /health` on the official MCP page. One copy of the truth.
 
 ## 2026-09-13 — AgentCore CLI vs legacy starter toolkit
 

@@ -10,11 +10,11 @@ as we actually touch each surface.
   `facts`). Phase 0 verified docs at docs.bee.computer (dated 2026-06-07)
   against the bee-computer/bee-cli README.
 - **Worked:** stream payload shapes are documented with structural keys;
-  `conversation.id` is a number; `serve-http` exists on the GitHub README.
+  `conversation.id` is a number; MCP HTTP is documented (`bee mcp serve-http`,
+  token ≥32 chars, bind to 127.0.0.1).
 - **Needs work:** JSON stream has no top-level `event` field, so created vs
   updated todos are ambiguous. Transcript JSON schema is not fully documented
-  — we will lock it from captured fixtures. Official MCP HTTP page is thinner
-  than the GitHub README (`serve-http --port` / token).
+  — we will lock it from captured fixtures.
 - **Onboarding:** `npm i -g @beeai/cli` + Developer Mode (tap Version 5×) is
   clear. Prerequisite (physical Bee + iOS) is the right kind of friction for
   this track.

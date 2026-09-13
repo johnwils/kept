@@ -19,14 +19,14 @@
         <h2>Kept</h2>
         <span class="count">0</span>
       </header>
-      <p class="empty">Closed issues with a matching Bee todo. Streaks land in Phase 5.</p>
+      <p class="empty">Closed issues with a matching Bee todo.</p>
     </article>
     <article class="col">
       <header>
         <h2>At risk</h2>
         <span class="count">0</span>
       </header>
-      <p class="empty">Due inside 24 hours, still open. Nudges land in Phase 5.</p>
+      <p class="empty">Due inside 24 hours, still open.</p>
     </article>
     <article class="col">
       <header>
@@ -37,6 +37,7 @@
     </article>
   </section>
 
+  {% if not ship_mode %}
   <section class="phases" aria-label="Build phases">
     <h2>Build</h2>
     <ol>
@@ -49,4 +50,5 @@
       {% endfor %}
     </ol>
   </section>
+  {% endif %}
 {% endblock %}

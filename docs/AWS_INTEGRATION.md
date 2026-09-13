@@ -24,6 +24,7 @@ AgentCore story.
 
 Console → Amazon Bedrock → **us-west-2** → Model access. Kept reads
 `BEDROCK_MODEL_ID` from the environment and **does not hardcode** an ID.
+Confirm the string in the console for this account before Phase 2.
 
 | Role | Model | `BEDROCK_MODEL_ID` |
 | --- | --- | --- |

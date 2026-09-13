@@ -11,7 +11,6 @@ Importance: `critical` / `important` / `nice-to-have`.
 | Consent flag on the conversation object | important | Judges (and anyone recorded) will care. We store this ourselves; Bee is the source of the recording. |
 | Documented transcript JSON | important | Extraction quality depends on speaker + index. Sample payload belongs in the docs. |
 | `bee todos create` idempotency key | nice-to-have | Reconciliation can double-create wrist todos. |
-| Official MCP HTTP page matching `serve-http` | nice-to-have | GitHub README and docs.bee.computer currently diverge. |
 
 ## AgentCore / Strands / Bedrock
 

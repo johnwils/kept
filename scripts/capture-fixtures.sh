@@ -24,6 +24,15 @@ echo
 echo "== bee ping =="
 bee ping
 echo
+echo "== bee mcp --help =="
+bee mcp --help
+echo
+echo "== bee sync --help =="
+bee sync --help
+echo
+echo "== bee conversations --help =="
+bee conversations --help || bee conversations list --help
+echo
 
 echo "== writing JSON snapshots =="
 bee me --json > "$OUT/me.json"

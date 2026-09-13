@@ -65,17 +65,18 @@ def create_app() -> FastAPI:
 
 def _page(request: Request, template: str, active: str, title: str) -> HTMLResponse:
     settings = load_settings()
+    nav = NAV if not settings.kept_ship_mode else [item for item in NAV if item[2] != "setup"]
     return templates.TemplateResponse(
         request=request,
         name=template,
         context={
             "title": title,
             "active": active,
-            "nav": NAV,
+            "nav": nav,
             "phases": PHASES,
             "version": __version__,
             "mode": settings.kept_mode,
-            "model_id": settings.bedrock_model_id or "us.anthropic.claude-sonnet-4-6",
+            "ship_mode": settings.kept_ship_mode,
         },
     )
 

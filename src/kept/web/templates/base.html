@@ -43,7 +43,9 @@
             <span class="dot" data-mode="{{ mode }}"></span>
             {{ mode }}
           </div>
+          {% if not ship_mode %}
           <p class="phase-label">Phase 0 of 6</p>
+          {% endif %}
         </div>
       </aside>
 
