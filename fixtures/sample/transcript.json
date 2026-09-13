@@ -1,0 +1,15 @@
+{
+  "id": 101,
+  "uuid": "c-standup-101",
+  "title": "Engineering standup",
+  "state": "processed",
+  "short_summary": "Auth bug by Thursday; Postgres chosen for billing.",
+  "recorded_with_consent": true,
+  "utterances": [
+    {"index": 0, "speaker": "speaker_2", "text": "Anything blocking the billing work?"},
+    {"index": 1, "speaker": "me", "text": "The auth bug. I'll fix the auth bug by Thursday."},
+    {"index": 2, "speaker": "speaker_2", "text": "Are we still debating Dynamo?"},
+    {"index": 3, "speaker": "me", "text": "No. We're going with Postgres over Dynamo for billing."},
+    {"index": 4, "speaker": "speaker_2", "text": "Can you take the on-call this weekend?"}
+  ]
+}

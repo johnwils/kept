@@ -1,0 +1,7 @@
+{"conversation": {"id": 101, "uuid": "c-standup-101", "state": "processing", "title": "Engineering standup"}}
+{"utterance": {"text": "I'll fix the auth bug by Thursday.", "speaker": "me"}, "conversation_uuid": "c-standup-101", "conversation_id": 101}
+{"utterance": {"text": "We're going with Postgres over Dynamo for billing.", "speaker": "me"}, "conversation_uuid": "c-standup-101", "conversation_id": 101}
+{"utterance": {"text": "Can you take the on-call this weekend?", "speaker": "speaker_2"}, "conversation_uuid": "c-standup-101", "conversation_id": 101}
+{"conversation": {"id": 101, "state": "processed", "title": "Engineering standup", "short_summary": "Auth bug by Thursday; Postgres chosen for billing."}}
+{"conversation_id": 101, "short_summary": "Auth bug by Thursday; Postgres chosen for billing."}
+{"todo": {"id": 1, "text": "Fix auth bug", "completed": false, "alarmAt": 1758009600000}}
